@@ -128,3 +128,15 @@ button{
   width: 100%;
 
 }
+
+.captcha-images{
+  background: white;
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.captcha-images > div {
+  border: 1px solid blue;
+}
