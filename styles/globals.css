@@ -105,3 +105,26 @@ a {
     color-scheme: dark;
   }
 }
+
+body {
+  padding: 30px;
+}
+
+main {
+  width: 300px;
+  margin: 0 auto;
+}
+
+textarea {
+  padding: 12px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+button{
+  padding: 8px 30px;
+  border-radius: 5px;
+  margin: 10px 0;
+  width: 100%;
+
+}
