@@ -105,6 +105,9 @@ a {
     color-scheme: dark;
   }
 }
+img{
+  max-width: 100%;
+}
 
 body {
   padding: 30px;
@@ -132,11 +135,11 @@ button{
 .captcha-images{
   background: white;
   width: 300px;
-  height: 300px;
+  /* height: 300px; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
 .captcha-images > div {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
