@@ -4,7 +4,7 @@ import React from 'react'
 
 const arrayLength = 9;
 const imageLocations = Array(arrayLength).fill(null).map((value, index) => {
-  return `/api/captcha-image?index=${index}.png`;
+  return `/api/captcha-image?index=${index}`;
 })
 
 export const Captcha = () => {
