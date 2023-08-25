@@ -138,8 +138,21 @@ button{
   /* height: 300px; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  align-items: center;
 }
 
 .captcha-images > div {
   /* border: 1px solid blue; */
+}
+
+.captcha-images > div.selected{
+  position: relative;
+}
+
+.captcha-images > div.selected:after{
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: rgba(100, 150, 255, 0.5)
 }
