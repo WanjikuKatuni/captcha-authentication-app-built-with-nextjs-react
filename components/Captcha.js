@@ -1,11 +1,17 @@
 // captcha component
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
-export const Captcha = () => {
+export const Captcha = ({onChange}) => {
   const [selectedIndexes, setSelectedIndexes] = useState([])
+
+  useEffect(() => {
+    onChange(selectedIndexes)
+  }, [selectedIndexes])
+
+
   const arrayLength = 9;
   const imageLocations = Array(arrayLength).fill(null).map((value, index) => {
   return `/api/captcha-image?index=${index}`;
