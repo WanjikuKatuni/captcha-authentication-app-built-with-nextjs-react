@@ -13,12 +13,17 @@ export default function Home() {
       alert ('The message is required')
       return;
     }
-    fetch('/api/send', {
+    fetch('/api/send-message', {
       method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         message, 
           selectedIndexes
         }),
+    }).then(response => {
+      
     })
   }
 
