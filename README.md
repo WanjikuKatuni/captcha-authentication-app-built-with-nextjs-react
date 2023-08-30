@@ -1,10 +1,10 @@
 # CAPTCHA APPLICATION
 
-This is a captcha verification application built with [Next.js]  and deployed on vercel
+This is a captcha verification application built with [Next.js]  and deployed on vercel [https://captcha-authentication-app.vercel.app/]
 
-<span style="display:block;text-align:center">
-![image](/public/captcha-screenshot.png)
-</span>
+
+            ![image](/public/captcha-screenshot.png)
+
 
 
 ## Getting Started
