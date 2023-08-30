@@ -7,7 +7,7 @@ import { withIronSessionApiRoute } from "iron-session/next";
 
 const dogProbability = 0.5;
 
-function newCaptchaImages(){
+export function newCaptchaImages(){
     return new Array(9)
     .fill(null)
     .map((val, index) => {

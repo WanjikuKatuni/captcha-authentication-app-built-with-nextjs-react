@@ -1,11 +1,14 @@
 import { Captcha } from "@/components/Captcha";
 import { useState } from "react";
 
-export default function Home() {
+export default function Home({defaultCaptchaKey}) {
 
   const [selectedIndexes, setSelectedIndexes] = useState([])
 
   const [message, setMessage] = useState('')
+
+  // refresh
+  const [captchaKey, setCaptchaKey] = useState(defaultCaptchaKey)
 
 
   function sendMessage(){
@@ -25,10 +28,16 @@ export default function Home() {
     }).then(response => {
       response.json().then(json => {
         if (json.sent) {
+        // reset captcha key
+        setCaptchaKey((new Date()).getTime())
+        // alert
         alert ('Verified. Message Sent!')
         setMessage('')
         }
         if (!json.captchaIsCorrect) {
+          // reset captcha key
+          setCaptchaKey((new Date()).getTime())
+          // alert
           alert ('Wrong Captcha. Please try again')
         }
       })
@@ -50,11 +59,20 @@ export default function Home() {
 
       {/* captcha components */}
       <div>
-        <Captcha onChange={setSelectedIndexes}/>
+        <Captcha captchaKey = {captchaKey} onChange={setSelectedIndexes}/>
       </div>
 
 
       <button onClick={sendMessage}>send</button>
     </main>
   );
+}
+
+
+export function getServerSideProps(){
+  return {
+    props: {
+      defaultCaptchaKey: (new Date).getTime()
+    }
+  }
 }

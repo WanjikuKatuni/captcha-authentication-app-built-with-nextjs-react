@@ -4,17 +4,22 @@ import React, { useEffect, useState } from 'react'
 
 
 
-export const Captcha = ({onChange}) => {
+export const Captcha = ({onChange, captchaKey }) => {
   const [selectedIndexes, setSelectedIndexes] = useState([])
 
   useEffect(() => {
     onChange(selectedIndexes)
   }, [selectedIndexes])
 
+  // Change selection after every refresh
+  useEffect(()=> {
+    setSelectedIndexes([])
+  }, [captchaKey])
+
 
   const arrayLength = 9;
   const imageLocations = Array(arrayLength).fill(null).map((value, index) => {
-  return `/api/captcha-image?index=${index}`;
+  return `/api/captcha-image?index=${index}&key=${captchaKey}`;
   })
   // onCLick function to toggle selected images
   function toggleIndex(index){
