@@ -42,7 +42,7 @@ export const Captcha = ({onChange, captchaKey }) => {
       <div className='captcha-images'>
         {/* map captcha images */}
         {imageLocations.map((imageUrl, index) => (
-          <div 
+          <div key={index}
 
           onClick={()=> toggleIndex(index)}
 
