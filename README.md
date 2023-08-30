@@ -2,7 +2,9 @@
 
 This is a captcha verification application built with [Next.js]  and deployed on vercel
 
+<span style="display:block;text-align:center">
 ![image](/public/captcha-screenshot.png)
+</span>
 
 
 ## Getting Started
