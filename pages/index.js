@@ -23,7 +23,15 @@ export default function Home() {
           selectedIndexes
         }),
     }).then(response => {
-      
+      response.json().then(json => {
+        if (json.sent) {
+        alert ('Verified. Message Sent!')
+        setMessage('')
+        }
+        if (!json.captchaIsCorrect) {
+          alert ('Wrong Captcha. Please try again')
+        }
+      })
     })
   }
 
