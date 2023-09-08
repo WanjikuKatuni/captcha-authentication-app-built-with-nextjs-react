@@ -1,5 +1,7 @@
 import { Captcha } from "@/components/Captcha";
+import { withIronSessionSsr } from "iron-session/next";
 import { useState } from "react";
+import {newCaptchaImages} from "./api/captcha-image";
 
 export default function Home({defaultCaptchaKey}) {
 
@@ -69,10 +71,19 @@ export default function Home({defaultCaptchaKey}) {
 }
 
 
-export function getServerSideProps(){
-  return {
-    props: {
-      defaultCaptchaKey: (new Date).getTime()
+export const getServerSideProps = withIronSessionSsr(async ({req}) => {
+  {
+    if (!req.session.captchaImages) {
+      req.session.captchaImages = newCaptchaImages();
+      await req.session.save();
     }
+    return {
+      props:{
+        defaultCaptchaKey: (new Date).getTime(),
+      }
+    };
   }
-}
+}, {
+  cookieName: 'session',
+  password: process.env.SESSION_SECRET,
+});
