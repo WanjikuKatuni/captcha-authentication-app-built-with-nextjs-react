@@ -2,7 +2,7 @@
 
 import fs from 'fs'
 import { withIronSessionApiRoute } from "iron-session/next";
-
+import * as path from "path";
 
 
 const dogProbability = 0.5;
@@ -25,8 +25,10 @@ export function newCaptchaImages(){
 
 
         const fileName = (shouldBeDog ? 'dog' : 'muffin') + number + '.png' 
-        
-        return `./public/muffinsndogs/${fileName}`
+
+        const imagesDirectory = path.join(process.cwd(), 'public/muffinsndogs');
+        return `${imagesDirectory}/${fileName}`;
+     
     })
 }
 
